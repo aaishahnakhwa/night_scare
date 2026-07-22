@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Creepster&family=Inter:wght@300;400;700&family=Special+Elite&display=swap');
+
+@import "tailwindcss";
+@config "../tailwind.config.js";
+
+@layer base {
+  body {
+    @apply bg-black text-stone-200 overflow-x-hidden font-sans;
+    background-color: #050505;
+  }
+}
+
+/* Lenis Scroll Smooth Setup */
+html.lenis, html.lenis body {
+  height: auto;
+}
+.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+.lenis-stopped {
+  overflow: hidden;
+}
+.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #050505;
+}
+::-webkit-scrollbar-thumb {
+  background: #450a0a;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #991b1b;
+}
+
+/* Vignette Overlay for focus & claustrophobia */
+.vignette-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(circle, transparent 20%, rgba(0, 0, 0, 0.95) 90%);
+  z-index: 40;
+}
+
+/* Blood splattered border or red vignette */
+.red-vignette {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(circle, transparent 30%, rgba(69, 10, 10, 0.6) 100%);
+  z-index: 41;
+}
+
+/* CRT Scanlines and screen noise simulation */
+.crt-scanlines::before {
+  content: " ";
+  display: block;
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+  z-index: 45;
+  background-size: 100% 4px, 6px 100%;
+  pointer-events: none;
+  opacity: 0.8;
+}
+
+.crt-glitch {
+  animation: glitch 0.3s infinite;
+}
+
+@keyframes glitch {
+  0% {
+    transform: translate(0) skew(0deg);
+  }
+  10% {
+    transform: translate(-1px, 2px) skew(-0.5deg);
+  }
+  20% {
+    transform: translate(2px, -1px) skew(0.5deg);
+  }
+  30% {
+    transform: translate(0) skew(0deg);
+  }
+  100% {
+    transform: translate(0) skew(0deg);
+  }
+}
+
+/* Custom Text Shadows */
+.glow-red {
+  text-shadow: 0 0 10px rgba(153, 27, 27, 0.8), 0 0 20px rgba(153, 27, 27, 0.5);
+}
+
+.glow-red-flicker {
+  text-shadow: 0 0 10px rgba(153, 27, 27, 0.8);
+  animation: textFlicker 2s infinite alternate;
+}
+
+@keyframes textFlicker {
+  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+    text-shadow: 0 0 8px rgba(153, 27, 27, 0.8), 0 0 15px rgba(153, 27, 27, 0.4);
+    opacity: 1;
+  }
+  20%, 24%, 55% {
+    text-shadow: none;
+    opacity: 0.4;
+  }
+}
+
+/* Background image blurring with animated vignette */
+.bg-blur-container {
+  background-position: center;
+  background-size: cover;
+  filter: blur(8px) brightness(0.2);
+  transform: scale(1.05);
+  transition: filter 1s ease-in-out, transform 10s ease-in-out;
+}
