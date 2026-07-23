@@ -249,22 +249,22 @@ export class HorrorSynth {
 
     source.buffer = this.noiseBuffer;
 
-    // Filter to simulate sharp mechanical tick (wider bandpass and lower frequency)
+    // Filter to simulate a softer, slightly lower mechanical tick
     filter.type = 'bandpass';
-    filter.frequency.setValueAtTime(1500 + Math.random() * 500, now);
-    filter.Q.setValueAtTime(2.0, now);
+    filter.frequency.setValueAtTime(1100 + Math.random() * 350, now); // slightly lower pitch range
+    filter.Q.setValueAtTime(2.5, now);
 
-    // Harder, clearer keystroke tick envelope
+    // Softer keystroke tick envelope (about half of previous volume)
     gain.gain.setValueAtTime(0, now);
-    gain.gain.linearRampToValueAtTime(0.38 + Math.random() * 0.15, now + 0.001);
-    gain.gain.exponentialRampToValueAtTime(0.001, now + 0.028);
+    gain.gain.linearRampToValueAtTime(0.18 + Math.random() * 0.08, now + 0.001);
+    gain.gain.exponentialRampToValueAtTime(0.001, now + 0.024);
 
     source.connect(filter);
     filter.connect(gain);
     gain.connect(this.ctx.destination);
 
     source.start(now);
-    source.stop(now + 0.035);
+    source.stop(now + 0.03);
   }
 
   /**

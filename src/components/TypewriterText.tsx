@@ -55,9 +55,12 @@ export const TypewriterText: React.FC<TypewriterTextProps> = ({
         setDisplayedText((prev) => prev + char);
         setIndex((prev) => prev + 1);
 
-        // Synthesize click sound for typewriter keypress (skipping spaces for realistic pacing)
+        // Synthesize click sound for typewriter keypress (skipping spaces and introducing slight organic skips for natural pacing)
         if (char !== ' ' && char !== '\n' && char !== '\r') {
-          playTypewriterClick();
+          // Play click sound on 75% of characters to lower tick frequency and feel more human
+          if (Math.random() < 0.75) {
+            playTypewriterClick();
+          }
         }
       }, randomSpeed);
 
