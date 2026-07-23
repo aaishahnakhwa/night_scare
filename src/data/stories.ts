@@ -9,6 +9,7 @@ export interface ReadingStory {
   title: string;
   description: string;
   bgImage: string;
+  jumpscareImage?: string;
   blocks: ReadingBlock[];
 }
 
@@ -113,6 +114,60 @@ export const readingStories: ReadingStory[] = [
         bpm: 150,
       }
     ]
+  },
+  {
+    id: 'aakhri-photo',
+    title: 'Aakhri Photo',
+    description: 'Ek maasoom baccha aur uske naye mobile phone ki ek aisi tasveer jo kabhi nahi khinchani chahiye thi...',
+    bgImage: '/assets/aakhri_photo_bg.png',
+    jumpscareImage: '/assets/horrifying_jumpscare_face.png',
+    blocks: [
+      {
+        text: 'Ek aurat thi jiska ek 6 saal ka beta tha. Ek din, usne ek naya mobile phone khareeda. Jab woh kaam se ghar waapas aayi, toh woh raat ka khana banane lagi aur apna phone kitchen ke table par rakh diya.',
+        audioEvent: 'none',
+        bpm: 60,
+      },
+      {
+        text: 'Uska beta kitchen mein aaya aur usne phone dekha. Usne apni mummy se pucha ki kya woh phone se khel sakta hai? Mummy ne bol diya ki haan khel sakte ho, bas shart yeh hai ki kisi ko call mat karna aur koi text message delete mat karna.',
+        audioEvent: 'none',
+        bpm: 70,
+      },
+      {
+        text: 'Obviously, ladka maan gaya aur phone lekar apne kamre mein khelne chala gaya. Raat ko karib 10 baje, jab woh apne bete ko sone ke liye dekhne upar gayi, toh usne dekha ki woh apne bed par geheri neend mein so raha tha.',
+        audioEvent: 'none',
+        bpm: 80,
+      },
+      {
+        text: 'Naya cell phone bed ke paas zameen par pada hua tha. Usne phone uthaya aur settings check karne lagi taaki yeh confirm kar sake ki bete ne kuch delete toh nahi kiya.',
+        audioEvent: 'none',
+        bpm: 90,
+      },
+      {
+        text: 'Usne dekha ki kuch chote-mote changes hue the. Beta phone ka theme, background change kar chuka tha aur ek naya ringtone bhi laga diya tha.',
+        audioEvent: 'none',
+        bpm: 100,
+      },
+      {
+        text: 'Phir usne notice kiya ki uske bete ne cell phone se kuch photos bhi khinchi hain. Usne gallery folder khola aur photos dekhne lagi. "Kitna cute hai," usne socha. Beta apni hi photos khinch raha tha.',
+        audioEvent: 'whisperLeft',
+        bpm: 110,
+      },
+      {
+        text: 'Lekin phir uske samne folder ki aakhri photo aayi. Jab usne pehli baar woh photo dekhi, toh usey apni aankhon par yakeen hi nahi hua. Kya uski aankhen usey dhokha de rahi thi?',
+        audioEvent: 'whisperRight',
+        bpm: 125,
+      },
+      {
+        text: 'Woh uske bete ki hi photo thi, jo bed par so raha tha. Lekin sabse khaufnaak baat yeh thi ki photo ke ekdum left corner mein koi aur dikh raha tha...',
+        audioEvent: 'accelerateHeartbeat',
+        bpm: 140,
+      },
+      {
+        text: 'Matlab... kisi aur ne uske bete ki woh photo khinchi thi... jab woh so raha tha. Aur tabhi, aapke peeche se ek dabi hui hansi sunai deti hai...',
+        audioEvent: 'jumpscare',
+        bpm: 155,
+      }
+    ]
   }
 ];
 
@@ -178,7 +233,7 @@ export const interactiveStories: InteractiveStory[] = [
           { text: 'Explore the cellar shadows for tools', nextNodeId: 'jumpscare_cellar' }
         ]
       },
-      
+
       // Endings & Jumpscares
       jumpscare_hallway: {
         id: 'jumpscare_hallway',
@@ -284,7 +339,7 @@ export const interactiveStories: InteractiveStory[] = [
         endingType: 'death',
         endingText: 'Taken by the forest spirits. You became part of the woods.'
       },
-      
+
       // Jumpscares & Endings
       jumpscare_woods: {
         id: 'jumpscare_woods',

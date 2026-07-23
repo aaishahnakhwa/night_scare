@@ -128,7 +128,7 @@ export const PlayStory: React.FC = () => {
         <div
           className="absolute inset-0 z-10 pointer-events-none transition-all duration-300"
           style={{
-            background: `radial-gradient(circle 140px at ${mousePos.x}px ${mousePos.y}px, transparent 20%, rgba(5, 5, 5, 0.98) 100%)`,
+            background: `radial-gradient(circle 180px at ${mousePos.x}px ${mousePos.y}px, transparent 20%, rgba(5, 5, 5, 0.82) 100%)`,
           }}
         />
       )}
@@ -136,10 +136,10 @@ export const PlayStory: React.FC = () => {
       {/* Flashlight beam highlight ring */}
       {!showGameOver && !jumpscareTriggered && (
         <div
-          className="absolute z-11 pointer-events-none border border-yellow-100/10 rounded-full w-[280px] h-[280px] filter blur-[2px]"
+          className="absolute z-11 pointer-events-none border border-yellow-100/10 rounded-full w-[360px] h-[360px] filter blur-[2px]"
           style={{
-            left: `${mousePos.x - 140}px`,
-            top: `${mousePos.y - 140}px`,
+            left: `${mousePos.x - 180}px`,
+            top: `${mousePos.y - 180}px`,
           }}
         />
       )}

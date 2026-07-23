@@ -64,7 +64,7 @@ export const InteractiveHub: React.FC = () => {
             >
               {/* Backdrop image */}
               <div
-                className="absolute inset-0 bg-cover bg-center filter brightness-[0.22] group-hover:brightness-[0.35] group-hover:scale-105 transition-all duration-700"
+                className="absolute inset-0 bg-cover bg-center filter brightness-[0.42] group-hover:brightness-[0.58] group-hover:scale-105 transition-all duration-700"
                 style={{ backgroundImage: `url(${story.bgImage})` }}
               />
 

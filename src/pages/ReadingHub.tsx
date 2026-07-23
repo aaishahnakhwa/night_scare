@@ -64,7 +64,7 @@ export const ReadingHub: React.FC = () => {
             >
               {/* Blurred Image Backdrop */}
               <div
-                className="absolute inset-0 bg-cover bg-center filter brightness-[0.25] group-hover:brightness-[0.4] group-hover:scale-105 transition-all duration-700"
+                className="absolute inset-0 bg-cover bg-center filter brightness-[0.45] group-hover:brightness-[0.6] group-hover:scale-105 transition-all duration-700"
                 style={{ backgroundImage: `url(${story.bgImage})` }}
               />
               

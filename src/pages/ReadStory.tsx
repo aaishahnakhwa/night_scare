@@ -118,21 +118,35 @@ export const ReadStory: React.FC = () => {
     setShowWarning(false);
   };
 
+  // Dynamic values to create an intense visual buildup as the user advances through the story blocks
+  const progress = story.blocks.length > 1 ? blockIndex / (story.blocks.length - 1) : 0;
+  const blurVal = 8 - progress * 6; // starts at 8px blur, clears down to 2px as threat nears
+  const brightnessVal = 0.45 + progress * 0.20; // starts at 0.45 (45% brightness) and rises to 0.65 (65% brightness) for clear visibility
+  const scaleVal = 1.03 + progress * 0.18; // slowly crawls closer from 1.03 to 1.21 zoom
+  const redVignetteOpacity = 0.05 + progress * 0.70; // red peripheral dread closes in from 0.05 to 0.75
+
   return (
     <div className="relative w-screen h-screen overflow-hidden bg-black text-stone-200 flex flex-col justify-between select-none">
       {/* Dynamic Cinematic Backdrop: Blurred & Slowly Scaling */}
       <div
-        className="absolute inset-0 bg-cover bg-center filter blur-[12px] brightness-[0.16] transform scale-[1.08] transition-all duration-1000"
-        style={{ backgroundImage: `url(${story.bgImage})` }}
+        className="absolute inset-0 bg-cover bg-center transition-all duration-[3000ms] ease-out pointer-events-none"
+        style={{
+          backgroundImage: `url(${story.bgImage})`,
+          filter: `blur(${blurVal}px) brightness(${brightnessVal})`,
+          transform: `scale(${scaleVal}) rotate(${progress * 1.5}deg)`,
+        }}
       />
       
       {/* Screen effects */}
       <div className="crt-scanlines pointer-events-none absolute inset-0 z-10" />
       <div className="vignette-overlay opacity-90 animate-vignettePulse" />
-      <div className="red-vignette opacity-35" />
+      <div
+        className="red-vignette transition-all duration-[2000ms] ease-out"
+        style={{ opacity: redVignetteOpacity }}
+      />
 
       {/* Jumpscare Event Layer */}
-      <JumpscareOverlay trigger={jumpscareTriggered} onEnd={handleJumpscareEnd} />
+      <JumpscareOverlay trigger={jumpscareTriggered} onEnd={handleJumpscareEnd} imagePath={story.jumpscareImage} />
 
       {/* Header */}
       <header className="relative z-20 w-full px-8 py-6 flex justify-between items-center bg-gradient-to-b from-black/80 to-transparent">

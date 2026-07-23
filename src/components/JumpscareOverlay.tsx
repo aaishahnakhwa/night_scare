@@ -5,9 +5,10 @@ import { useSound } from '../context/SoundContext';
 interface JumpscareOverlayProps {
   trigger: boolean;
   onEnd: () => void;
+  imagePath?: string;
 }
 
-export const JumpscareOverlay: React.FC<JumpscareOverlayProps> = ({ trigger, onEnd }) => {
+export const JumpscareOverlay: React.FC<JumpscareOverlayProps> = ({ trigger, onEnd, imagePath }) => {
   const { playJumpscare, startHeartbeat, stopHeartbeat, setHeartbeatBpm } = useSound();
   const [show, setShow] = useState(false);
   const [stage, setStage] = useState<'scare' | 'fade' | 'none'>('none');
@@ -87,7 +88,7 @@ export const JumpscareOverlay: React.FC<JumpscareOverlayProps> = ({ trigger, onE
       >
         {/* Scary Face Image */}
         <img
-          src="/assets/screaming_ghost.png"
+          src={imagePath || "/assets/screaming_ghost.png"}
           alt="Screaming Apparition"
           className="w-full h-full object-cover max-w-4xl max-h-[85vh] filter brightness-125 contrast-125 select-none pointer-events-none"
         />
