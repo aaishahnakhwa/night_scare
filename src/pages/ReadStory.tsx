@@ -131,7 +131,7 @@ export const ReadStory: React.FC = () => {
       <div
         className="absolute inset-0 bg-cover bg-center transition-all duration-[3000ms] ease-out pointer-events-none"
         style={{
-          backgroundImage: `url(${story.bgImage})`,
+          backgroundImage: `url(${currentBlock?.bgImage || story.bgImage})`,
           filter: `blur(${blurVal}px) brightness(${brightnessVal})`,
           transform: `scale(${scaleVal}) rotate(${progress * 1.5}deg)`,
         }}

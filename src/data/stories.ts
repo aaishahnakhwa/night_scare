@@ -2,6 +2,7 @@ export interface ReadingBlock {
   text: string;
   audioEvent?: 'whisperLeft' | 'whisperRight' | 'accelerateHeartbeat' | 'decelerateHeartbeat' | 'jumpscare' | 'none';
   bpm?: number;
+  bgImage?: string;
 }
 
 export interface ReadingStory {
@@ -51,29 +52,16 @@ export const readingStories: ReadingStory[] = [
     bgImage: '/assets/creepy_hallway.png',
     blocks: [
       {
-        text: 'The concrete floor is cold beneath your bare skin. A single flickering light bulb hangs from the ceiling, casting dancing shadows.',
-        audioEvent: 'none',
-        bpm: 60,
-      },
-      {
-        text: 'Then, you hear it. A quiet, rasping sound. Like fingernails scraping against dry plaster. Just behind the plaster wall to your left...',
+        text: 'The concrete floor is cold beneath your bare skin under a flickering light bulb. Then, you hear a quiet, rasping scratching sound—like fingernails scraping against the plaster wall directly to your left...',
         audioEvent: 'whisperLeft',
-        bpm: 80,
+        bpm: 70,
+        bgImage: '/assets/asylum_plaster_wall.png',
       },
       {
-        text: 'You press your ear against the damp wall. The scraping stops. In its place, a freezing wind seems to blow, and a dry voice whispers in your ear.',
-        audioEvent: 'whisperLeft',
-        bpm: 100,
-      },
-      {
-        text: '"Do not turn around," the voice wheezes. "It has been watching you since the light began to flicker."',
+        text: 'You press your ear against the damp wall. A dry voice whispers in your ear: "Do not turn around. It has been watching you since the light began to flicker." Cold sweat breaks across your forehead; your chest beats in panic.',
         audioEvent: 'whisperRight',
         bpm: 120,
-      },
-      {
-        text: 'A cold sweat breaks across your forehead. Your chest beats like a trapped bird. You cannot help it. You start to turn...',
-        audioEvent: 'accelerateHeartbeat',
-        bpm: 140,
+        bgImage: '/assets/shadow_hand_corridor.png',
       },
       {
         text: 'The light fixture overhead explodes. Pitch black darkness falls. And then—',
@@ -89,27 +77,19 @@ export const readingStories: ReadingStory[] = [
     bgImage: '/assets/asylum_room.png',
     blocks: [
       {
-        text: 'In the center of the cracked tiled room stands a solitary metal chair, highlighted by a single surgical light. The metal is stained.',
+        text: 'In the center of the cracked tiled room stands a solitary metal chair highlighted by a single surgical light. As you sit down, the heavy chains hanging from the ceiling begin to clatter and sway in the draft.',
         audioEvent: 'none',
-        bpm: 60,
+        bpm: 70,
+        bgImage: '/assets/rust_chains_cell.png',
       },
       {
-        text: 'You sit down, seeking rest. As soon as you settle, the chains hanging from the ceiling begin to sway and clatter, though there is no draft.',
-        audioEvent: 'none',
-        bpm: 80,
-      },
-      {
-        text: 'A heavy sensation fills the room. The air grows freezing cold. You hear a low breathing from the shadows directly behind you.',
+        text: 'A freezing cold air fills the room. Paralyzed in the chair, you hear a low, wet breathing coming from the shadows directly behind you. The crawling silhouette moves closer, brushing the hairs on your neck.',
         audioEvent: 'whisperRight',
-        bpm: 110,
+        bpm: 120,
+        bgImage: '/assets/cell_shadow_crouch.png',
       },
       {
-        text: 'You try to stand, but your limbs feel heavy, paralyzed. The breathing moves closer, brushing the hairs on the back of your neck.',
-        audioEvent: 'accelerateHeartbeat',
-        bpm: 130,
-      },
-      {
-        text: 'A cold, wet hand grips your shoulder. You look down, and see fingers decaying right before your eyes. You open your mouth to scream, but no sound comes out...',
+        text: 'A cold, decaying hand grips your shoulder. You look down at the fingers rotting on your skin. You open your mouth to scream, but no sound comes out...',
         audioEvent: 'jumpscare',
         bpm: 150,
       }
@@ -123,49 +103,27 @@ export const readingStories: ReadingStory[] = [
     jumpscareImage: '/assets/horrifying_jumpscare_face.png',
     blocks: [
       {
-        text: 'Ek aurat thi jiska ek 6 saal ka beta tha. Ek din, usne ek naya mobile phone khareeda. Jab woh kaam se ghar waapas aayi, toh woh raat ka khana banane lagi aur apna phone kitchen ke table par rakh diya.',
+        text: 'Ek aurat thi jiska ek 6 saal ka beta tha. Ek din, usne ek naya mobile phone khareeda. Uska beta kitchen mein aaya aur phone lekar apne kamre mein khelne chala gaya, bas shart yeh thi ki koi call ya message delete mat karna.',
         audioEvent: 'none',
         bpm: 60,
+        bgImage: '/assets/kitchen_glowing_phone.png',
       },
       {
-        text: 'Uska beta kitchen mein aaya aur usne phone dekha. Usne apni mummy se pucha ki kya woh phone se khel sakta hai? Mummy ne bol diya ki haan khel sakte ho, bas shart yeh hai ki kisi ko call mat karna aur koi text message delete mat karna.',
+        text: 'Raat ko 10 baje, jab woh apne bete ko sone ke liye dekhne upar gayi, toh woh bed par geheri neend mein so raha tha. Naya cell phone bed ke paas zameen par pada hua tha, jise usne settings check karne ke liye utha liya.',
         audioEvent: 'none',
-        bpm: 70,
+        bpm: 85,
+        bgImage: '/assets/dark_wooden_stairs.png',
       },
       {
-        text: 'Obviously, ladka maan gaya aur phone lekar apne kamre mein khelne chala gaya. Raat ko karib 10 baje, jab woh apne bete ko sone ke liye dekhne upar gayi, toh usne dekha ki woh apne bed par geheri neend mein so raha tha.',
-        audioEvent: 'none',
-        bpm: 80,
-      },
-      {
-        text: 'Naya cell phone bed ke paas zameen par pada hua tha. Usne phone uthaya aur settings check karne lagi taaki yeh confirm kar sake ki bete ne kuch delete toh nahi kiya.',
-        audioEvent: 'none',
-        bpm: 90,
-      },
-      {
-        text: 'Usne dekha ki kuch chote-mote changes hue the. Beta phone ka theme, background change kar chuka tha aur ek naya ringtone bhi laga diya tha.',
-        audioEvent: 'none',
-        bpm: 100,
-      },
-      {
-        text: 'Phir usne notice kiya ki uske bete ne cell phone se kuch photos bhi khinchi hain. Usne gallery folder khola aur photos dekhne lagi. "Kitna cute hai," usne socha. Beta apni hi photos khinch raha tha.',
+        text: 'Usne dekha ki bete ne background change kiya tha aur gallery mein apni hi cute photos khinchi thi. Lekin phir uske samne folder ki aakhri photo aayi. Usey dekh kar aurat ko apni aankhon par yakeen nahi hua.',
         audioEvent: 'whisperLeft',
-        bpm: 110,
+        bpm: 115,
+        bgImage: '/assets/aakhri_photo_bg.png',
       },
       {
-        text: 'Lekin phir uske samne folder ki aakhri photo aayi. Jab usne pehli baar woh photo dekhi, toh usey apni aankhon par yakeen hi nahi hua. Kya uski aankhen usey dhokha de rahi thi?',
-        audioEvent: 'whisperRight',
-        bpm: 125,
-      },
-      {
-        text: 'Woh uske bete ki hi photo thi, jo bed par so raha tha. Lekin sabse khaufnaak baat yeh thi ki photo ke ekdum left corner mein koi aur dikh raha tha...',
-        audioEvent: 'accelerateHeartbeat',
-        bpm: 140,
-      },
-      {
-        text: 'Matlab... kisi aur ne uske bete ki woh photo khinchi thi... jab woh so raha tha. Aur tabhi, aapke peeche se ek dabi hui hansi sunai deti hai...',
+        text: 'Tasveer mein uska beta bed par so raha tha, lekin photo ke ekdum left corner mein koi aur dikh raha tha... matlab kisi aur ne uski photo khinchi thi. Aur tabhi, aapke peeche se ek dabi hui hansi sunai deti hai...',
         audioEvent: 'jumpscare',
-        bpm: 155,
+        bpm: 150,
       }
     ]
   }
